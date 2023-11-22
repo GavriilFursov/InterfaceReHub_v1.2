@@ -1,0 +1,11 @@
+C:\Users\tsuki\source\repos\TestOblojca\TestOblojca\bin\Release\TestOblojca.exe.config
+C:\Users\tsuki\source\repos\TestOblojca\TestOblojca\bin\Release\TestOblojca.exe
+C:\Users\tsuki\source\repos\TestOblojca\TestOblojca\bin\Release\TestOblojca.pdb
+C:\Users\tsuki\source\repos\TestOblojca\TestOblojca\obj\Release\TestOblojca.csproj.AssemblyReference.cache
+C:\Users\tsuki\source\repos\TestOblojca\TestOblojca\obj\Release\TestOblojca.Forms.ArchivePatientsForm.resources
+C:\Users\tsuki\source\repos\TestOblojca\TestOblojca\obj\Release\TestOblojca.MainForm.resources
+C:\Users\tsuki\source\repos\TestOblojca\TestOblojca\obj\Release\TestOblojca.Properties.Resources.resources
+C:\Users\tsuki\source\repos\TestOblojca\TestOblojca\obj\Release\TestOblojca.csproj.GenerateResource.cache
+C:\Users\tsuki\source\repos\TestOblojca\TestOblojca\obj\Release\TestOblojca.csproj.CoreCompileInputs.cache
+C:\Users\tsuki\source\repos\TestOblojca\TestOblojca\obj\Release\TestOblojca.exe
+C:\Users\tsuki\source\repos\TestOblojca\TestOblojca\obj\Release\TestOblojca.pdb
