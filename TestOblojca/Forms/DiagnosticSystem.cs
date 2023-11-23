@@ -151,10 +151,17 @@ namespace TestOblojca.Forms
 
                     chart1.Invoke(new Action(() =>
                     {
-                        chart1.Series[0].Points.AddY(sensorData[0]);
-                        chart1.Series[1].Points.AddY(sensorData[1]);
-                        chart1.Series[2].Points.AddY(sensorData[2]);
+                        chart5.Series[0].Points.AddY(sensorData[0]);
+                        chart5.Series[1].Points.AddY(sensorData[1]);
+                        chart5.Series[2].Points.AddY(sensorData[2]);
                     }));
+
+                    string sensorStringFirstLeftFootSensor = sensorData[0].ToString();
+                    textBox16.Text = sensorStringFirstLeftFootSensor;
+                    string sensorStringSecondLeftFootSensor = sensorData[1].ToString();
+                    textBox10.Text = sensorStringSecondLeftFootSensor;
+                    string sensorStringThirdLeftFootSensor = sensorData[2].ToString();
+                    textBox11.Text = sensorStringThirdLeftFootSensor;
 
                     //if (calculatedChecksum == checksum)
                     //{

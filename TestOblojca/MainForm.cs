@@ -81,8 +81,8 @@ namespace TestOblojca
                     if (btnSender != btnHelp)
                     {
                         timer2.Stop();
-                        //panelBtnHelp.BackColor = Color.FromArgb(51, 51, 76);
-                        //btnHelp.BackColor = Color.FromArgb(51, 51, 76);
+                        panelBtnHelp.BackColor = Color.FromArgb(51, 51, 76);
+                        btnHelp.BackColor = Color.FromArgb(51, 51, 76);
                         panelBtnHelp.Size = MinimumSize;
                         pictureBoxForHelp.Image = Resources.down_arrow_icon_icons_com_64915;
                         isCollapsedPanelHelp = true;
@@ -129,14 +129,21 @@ namespace TestOblojca
 
         private void btnRehabilitation_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.Form1(), sender);
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
             timer1.Start();
-            panelBtnSetting.BackColor = ThemeColor.PrimaryColor;
+            panelBtnSetting.BackColor = currentButton.BackColor;
+            foreach (Control btn in panelBtnSetting.Controls)
+            {
+                if (btn.GetType() == typeof(System.Windows.Forms.Button))
+                {
+                    btn.BackColor = currentButton.BackColor;
+                }
+            }
         }
 
         private void btnHelp_Click(object sender, EventArgs e)

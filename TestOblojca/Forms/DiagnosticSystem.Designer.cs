@@ -157,7 +157,7 @@ namespace TestOblojca.Forms
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(120)))));
+            this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Controls.Add(this.textBox13);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.textBox14);
@@ -539,9 +539,9 @@ namespace TestOblojca.Forms
             this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(471, 607);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(531, 22);
+            this.label10.Size = new System.Drawing.Size(396, 44);
             this.label10.TabIndex = 27;
-            this.label10.Text = "Показания с тензометрических датчиков правой стопы";
+            this.label10.Text = "Показания с тензометрических датчиков\nправой стопы";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label11

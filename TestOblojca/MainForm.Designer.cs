@@ -52,6 +52,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.lblForPrintName = new System.Windows.Forms.Label();
             this.panelPrintForm = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPonos = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
@@ -63,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxForSetting)).BeginInit();
             this.panelTitlePage.SuspendLayout();
             this.panelPrintForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelLogo
@@ -113,7 +115,7 @@
             this.panelBtnHelp.Controls.Add(this.btnReference);
             this.panelBtnHelp.Controls.Add(this.btnHelp);
             this.panelBtnHelp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBtnHelp.Location = new System.Drawing.Point(0, 805);
+            this.panelBtnHelp.Location = new System.Drawing.Point(0, 605);
             this.panelBtnHelp.MaximumSize = new System.Drawing.Size(250, 330);
             this.panelBtnHelp.MinimumSize = new System.Drawing.Size(250, 130);
             this.panelBtnHelp.Name = "panelBtnHelp";
@@ -324,7 +326,7 @@
             this.panelTitlePage.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitlePage.Location = new System.Drawing.Point(250, 0);
             this.panelTitlePage.Name = "panelTitlePage";
-            this.panelTitlePage.Size = new System.Drawing.Size(1027, 85);
+            this.panelTitlePage.Size = new System.Drawing.Size(1368, 85);
             this.panelTitlePage.TabIndex = 2;
             this.panelTitlePage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitlePage_MouseDown);
             // 
@@ -335,7 +337,7 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Location = new System.Drawing.Point(937, 1);
+            this.btnMinimize.Location = new System.Drawing.Point(1278, 1);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(30, 30);
             this.btnMinimize.TabIndex = 4;
@@ -350,7 +352,7 @@
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnMaximize.ForeColor = System.Drawing.Color.White;
-            this.btnMaximize.Location = new System.Drawing.Point(967, 1);
+            this.btnMaximize.Location = new System.Drawing.Point(1308, 1);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(30, 30);
             this.btnMaximize.TabIndex = 3;
@@ -365,7 +367,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(997, 1);
+            this.btnClose.Location = new System.Drawing.Point(1338, 1);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(30, 30);
             this.btnClose.TabIndex = 2;
@@ -378,7 +380,7 @@
             this.lblForPrintName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblForPrintName.AutoSize = true;
             this.lblForPrintName.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblForPrintName.Location = new System.Drawing.Point(413, 30);
+            this.lblForPrintName.Location = new System.Drawing.Point(584, 30);
             this.lblForPrintName.Name = "lblForPrintName";
             this.lblForPrintName.Size = new System.Drawing.Size(230, 24);
             this.lblForPrintName.TabIndex = 0;
@@ -388,18 +390,31 @@
             // panelPrintForm
             // 
             this.panelPrintForm.Controls.Add(this.lblPonos);
+            this.panelPrintForm.Controls.Add(this.pictureBox1);
             this.panelPrintForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPrintForm.Location = new System.Drawing.Point(250, 85);
             this.panelPrintForm.Name = "panelPrintForm";
-            this.panelPrintForm.Size = new System.Drawing.Size(1027, 915);
+            this.panelPrintForm.Size = new System.Drawing.Size(1368, 915);
             this.panelPrintForm.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1368, 915);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // lblPonos
             // 
             this.lblPonos.AutoSize = true;
             this.lblPonos.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblPonos.ForeColor = System.Drawing.Color.Black;
-            this.lblPonos.Location = new System.Drawing.Point(26, 243);
+            this.lblPonos.Location = new System.Drawing.Point(172, 852);
             this.lblPonos.Name = "lblPonos";
             this.lblPonos.Size = new System.Drawing.Size(994, 37);
             this.lblPonos.TabIndex = 0;
@@ -421,7 +436,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1277, 1000);
+            this.ClientSize = new System.Drawing.Size(1618, 1000);
             this.Controls.Add(this.panelPrintForm);
             this.Controls.Add(this.panelTitlePage);
             this.Controls.Add(this.panelMenu);
@@ -443,6 +458,7 @@
             this.panelTitlePage.PerformLayout();
             this.panelPrintForm.ResumeLayout(false);
             this.panelPrintForm.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -474,6 +490,7 @@
         private System.Windows.Forms.PictureBox pictureBoxForHelp;
         private System.Windows.Forms.Button btnAboutDevelopers;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
