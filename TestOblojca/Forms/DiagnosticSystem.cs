@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Management;
 using System.IO.Ports;
 using System.Windows.Forms;
+using System.Windows.Controls;
+using System.Drawing;
 
 namespace TestOblojca.Forms
 {
@@ -16,6 +18,7 @@ namespace TestOblojca.Forms
     {
         private System.Windows.Forms.Label label;
         bool isConnected = false;
+        bool checkingStartOrStop = false;
 
         public DiagnosticSystem()
         {
@@ -25,7 +28,7 @@ namespace TestOblojca.Forms
 
         private void ActivateLabel()
         {
-            foreach (Control previousLbl in panelChartDiagnostic.Controls)
+            foreach (System.Windows.Forms.Control previousLbl in panelChartDiagnostic.Controls)
             {
                 if (previousLbl.GetType() == typeof(System.Windows.Forms.Label))
                 {
@@ -38,7 +41,14 @@ namespace TestOblojca.Forms
 
         private void connectButton_Click(object sender, EventArgs e)
         {
-            ConnectOrDisconnectToArduino();
+            if (!isConnected)
+            {
+                ConnectOrDisconnectToArduino();
+            }
+            else
+            {
+                disconnectFromArduino();
+            }
         }
 
         private string DetectArduinoPort()
@@ -102,29 +112,7 @@ namespace TestOblojca.Forms
             }
         }
 
-        //private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
-        //{
-        //    SerialPort sp = (SerialPort)sender;
-        //    string data = sp.ReadLine();
-        //    //string data1 = sp.ReadLine();
-
-        //    //textBoxArduinoData.Invoke(new Action(() => textBoxArduinoData.Text = data));
-        //    //textBox2.Invoke(new Action(() => textBox2.Text = data1));
-        //    chart1.Invoke(new Action(() => {
-        //        chart1.Series[0].Points.AddY(data);
-        //        //chart1.Series[1].Points.AddY(data1);
-        //        //if (chart1.Series[0].Points.Count >= 50)
-        //        //{
-        //        //    chart1.Series[0].Points.Clear();
-        //        //}
-        //        //if (chart1.Series[1].Points.Count >= 50)
-        //        //{
-        //        //    chart1.Series[1].Points.Clear();
-        //        //}
-        //    }));
-        //}
-
-        private byte[] sensorData = new byte[3];
+        private byte[] sensorData = new byte[4];
         private bool isReadingData = false;
         private byte startMarker = 0xA0;
         private byte endMarker = 0xC0;
@@ -138,43 +126,64 @@ namespace TestOblojca.Forms
                 if (!isReadingData && receivedByte == startMarker)
                 {
                     isReadingData = true;
-                    for (int i = 0; i < 3; i++)
+                    for (int i = 0; i < 4; i++)
                     {
                         sensorData[i] = (byte)serialPort.ReadByte();
                     }
                 }
                 else if (isReadingData && receivedByte == endMarker)
                 {
-                    byte checksum = (byte)serialPort.ReadByte();
+                    //byte checksum = (byte)serialPort.ReadByte();
 
                     //byte calculatedChecksum = (byte)(sensorData[0] + sensorData[1]);
 
-                    chart1.Invoke(new Action(() =>
+
+                    chart5.Invoke(new Action(() =>
                     {
-                        chart5.Series[0].Points.AddY(sensorData[0]);
-                        chart5.Series[1].Points.AddY(sensorData[1]);
-                        chart5.Series[2].Points.AddY(sensorData[2]);
+                        chart5.Series[0].Points.AddXY(sensorData[3] / 100, sensorData[0]);
+                        chart5.Series[1].Points.AddXY(sensorData[3] / 100, sensorData[1]);
+                        chart5.Series[2].Points.AddXY(sensorData[3] / 100, sensorData[2]);
+
+                        if (chart5.Series[0].Points.Count >= 60)
+                        {
+                            chart5.Series[0].Points.Clear();
+                            sensorData[3] = 0;
+                        }
+                        if (chart5.Series[1].Points.Count >= 60)
+                        {
+                            chart5.Series[1].Points.Clear();
+                            sensorData[3] = 0;
+                        }
+                        if (chart5.Series[2].Points.Count >= 60)
+                        {
+                            chart5.Series[2].Points.Clear();
+                            sensorData[3] = 0;
+                        }
+
                     }));
 
                     string sensorStringFirstLeftFootSensor = sensorData[0].ToString();
-                    textBox16.Text = sensorStringFirstLeftFootSensor;
                     string sensorStringSecondLeftFootSensor = sensorData[1].ToString();
-                    textBox10.Text = sensorStringSecondLeftFootSensor;
                     string sensorStringThirdLeftFootSensor = sensorData[2].ToString();
-                    textBox11.Text = sensorStringThirdLeftFootSensor;
 
-                    //if (calculatedChecksum == checksum)
-                    //{
-                    //    chart1.Invoke(new Action(() =>
-                    //    {
-                    //        chart1.Series[0].Points.AddY(sensorData[0]);
-                    //        chart1.Series[1].Points.AddY(sensorData[1]);
-                    //    }));
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Ошибка: контрольная сумма не совпадает!");
-                    //}
+                    textBox11.Invoke(new Action(() =>
+                    {
+                        textBox11.Text = sensorStringFirstLeftFootSensor;
+                    }));
+
+                    textBox12.Invoke(new Action(() =>
+                    {
+                        textBox12.Text = sensorStringSecondLeftFootSensor;
+                    }));
+
+                    textBox13.Invoke(new Action(() =>
+                    {
+                        textBox13.Text = sensorStringThirdLeftFootSensor;
+                    }));
+
+                    checkingLoadOnTheFeet(0, panelFirstLeftFootSensor);
+                    checkingLoadOnTheFeet(1, panelSecondLeftFootSensor);
+                    checkingLoadOnTheFeet(2, panelThirdLeftFootSensor);     
 
                     isReadingData = false;
                 }
@@ -182,16 +191,44 @@ namespace TestOblojca.Forms
                 {
                     sensorData[0] = receivedByte;
                     sensorData[1] = (byte)serialPort.ReadByte();
-                    sensorData[2] = (byte)serialPort.ReadByte();
+                    sensorData[2] = (byte)serialPort.ReadByte(); 
+                    sensorData[3] = (byte)serialPort.ReadByte();
                 }
             }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void btnStartOrStop_Click(object sender, EventArgs e)
         {
-            chart1.Series[0].Points.Clear();
-            chart1.Series[1].Points.Clear();
-            chart1.Series[2].Points.Clear();
+            if (isConnected) {
+                if (!checkingStartOrStop)
+                {
+                    serialPort.Write("1");
+                    btnStartOrStop.Text = "Стоп";
+                    checkingStartOrStop = true;
+                }
+                else
+                {
+                    serialPort.Write("0");
+                    btnStartOrStop.Text = "Старт";
+                    checkingStartOrStop = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Необходимо установить подключение к устройству", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void checkingLoadOnTheFeet(int i, System.Windows.Forms.Panel position)
+        {
+            if (sensorData[i] >= 2)
+            {
+                position.BackColor = Color.Red;
+            }
+            else
+            {
+                position.BackColor = Color.Green;
+            }
         }
     }
 }
