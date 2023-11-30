@@ -178,7 +178,7 @@ namespace TestOblojca.Forms
 
                     textBox13.Invoke(new Action(() =>
                     {
-                        textBox13.Text = sensorStringThirdLeftFootSensor;
+                        textBox13.Text = sensorStringThirdLeftFootSensor; 
                     }));
 
                     checkingLoadOnTheFeet(0, panelFirstLeftFootSensor);
