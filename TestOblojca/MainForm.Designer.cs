@@ -53,7 +53,6 @@
             this.lblForPrintName = new System.Windows.Forms.Label();
             this.panelPrintForm = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblPonos = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panelLogo.SuspendLayout();
@@ -389,7 +388,6 @@
             // 
             // panelPrintForm
             // 
-            this.panelPrintForm.Controls.Add(this.lblPonos);
             this.panelPrintForm.Controls.Add(this.pictureBox1);
             this.panelPrintForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPrintForm.Location = new System.Drawing.Point(250, 85);
@@ -408,17 +406,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // lblPonos
-            // 
-            this.lblPonos.AutoSize = true;
-            this.lblPonos.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPonos.ForeColor = System.Drawing.Color.Black;
-            this.lblPonos.Location = new System.Drawing.Point(172, 852);
-            this.lblPonos.Name = "lblPonos";
-            this.lblPonos.Size = new System.Drawing.Size(994, 37);
-            this.lblPonos.TabIndex = 0;
-            this.lblPonos.Text = "Название, краткое описание, версия, разработчики, рендер модели";
             // 
             // timer1
             // 
@@ -457,7 +444,6 @@
             this.panelTitlePage.ResumeLayout(false);
             this.panelTitlePage.PerformLayout();
             this.panelPrintForm.ResumeLayout(false);
-            this.panelPrintForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -478,7 +464,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Button btnMaximize;
-        private System.Windows.Forms.Label lblPonos;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Panel panelBtnSetting;
         private System.Windows.Forms.Button btnDiagnosticSystem;
